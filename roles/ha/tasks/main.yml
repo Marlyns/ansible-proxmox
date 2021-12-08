@@ -9,7 +9,7 @@
 - name: "Copy haproxy.cfg to the managed node"
   template: 
      dest: haproxy.cfg
-     src: /etc/haproxy/haproxy.cfg
+     src: /etc/haproxy/
 
 - name: Restart service haproxy
   service: 
