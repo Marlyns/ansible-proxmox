@@ -11,15 +11,17 @@
         src: "haproxy.cfg"
         dest: "/etc/haproxy/haproxy.cfg"
 
-- name: Allow everything and enable UFW
-  ufw:
+- name: permit traffic in default
+  ansible.posix.firewalld:
+    service: http
+    permanent: yes
     state: enabled
-    role: allow
-    name: http
-    
-    role: allow
-    port: 9000
-    proto: tcp
+
+- name: permit traffic in default
+  ansible.posix.firewalld:
+    port: 9000/tcp
+    permanent: yes
+    state: enabled
 
 - name: Restart service haproxy
   service: 
