@@ -1,6 +1,8 @@
 - name: Install & configure Laod Balancer
   apt:
-    name: haproxy
+    name: 
+       - haproxy
+       - firewalld
     state : present
     update_cache: yes
     cache_valid_time: 3600
@@ -22,6 +24,13 @@
     port: 9000/tcp
     permanent: yes
     state: enabled
+
+- name: Restart service firewall
+  service:
+     name: "firewalld"
+     state: started
+     enabled: yes
+  become: yes
 
 - name: Restart service haproxy
   service: 
