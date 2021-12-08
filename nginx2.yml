@@ -1,0 +1,4 @@
+all:
+  hosts:
+    nginx2:
+     192.168.9.205 ansible_ssh_pass=root2021 ansible_ssh_user=jenkins
