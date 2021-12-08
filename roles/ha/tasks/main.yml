@@ -1,15 +1,26 @@
-- name: "Install & configure Laod Balancer"
+- name: Install & configure Laod Balancer
   apt:
     name: haproxy
     state : present
     update_cache: yes
     cache_valid_time: 3600
   become: yes
+<<<<<<< HEAD
         
 - name: "Copying configuration haproxy "
   template: 
         src: "haproxy.cfg"
         dest: "/etc/haproxy/haproxy.cfg"
+=======
+     
+- name: Copy haproxy.cfg to the managed node
+  stat: path=/etc/haproxy/haproxy.cfg
+  command: mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.old
+  
+  template: 
+     src: haproxy.cfg
+     dest: /etc/haproxy/
+>>>>>>> 0f6bd23808030baa0716dfb59a1cda892b08ee00
 
 - name: Restart service haproxy
   service: 
