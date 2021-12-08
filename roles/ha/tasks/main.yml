@@ -5,11 +5,17 @@
     update_cache: yes
     cache_valid_time: 3600
   become: yes
-        
+  
+- name: "Copy haproxy.cfg to the managed node"
+  copy:
+     remote_src=True
+     src: /etc/haproxy/haproxy.cfg
+     dest: /etc/haproxy/haproxy.cfg.old
+     
 - name: "Copy haproxy.cfg to the managed node"
   template: 
-     dest: haproxy.cfg
-     src: /etc/haproxy/
+     src: haproxy.cfg
+     dest: /etc/haproxy/
 
 - name: Restart service haproxy
   service: 
