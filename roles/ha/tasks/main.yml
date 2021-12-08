@@ -35,6 +35,6 @@
 - name: Restart service haproxy
   service: 
      name: "haproxy"
-     state: started
+     state: restarted
      enabled: yes
   become: yes
