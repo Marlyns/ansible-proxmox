@@ -28,7 +28,7 @@
 - name: Restart service firewall
   service:
      name: "firewalld"
-     state: started
+     state: restarted
      enabled: yes
   become: yes
 
