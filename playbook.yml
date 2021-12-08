@@ -3,3 +3,8 @@
   become: yes
   roles:
     - nginx
+- name: install haproxy
+  hosts: ha
+  become: yes
+  roles:
+    - ha
