@@ -11,6 +11,16 @@
         src: "haproxy.cfg"
         dest: "/etc/haproxy/haproxy.cfg"
 
+- name: Allow everything and enable UFW
+  ufw:
+    state: enabled
+    role: allow
+    name: http
+    
+    role: allow
+    port: 9000
+    proto: tcp
+
 - name: Restart service haproxy
   service: 
      name: "haproxy"
