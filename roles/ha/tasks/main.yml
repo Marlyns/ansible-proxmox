@@ -6,10 +6,10 @@
     cache_valid_time: 3600
   become: yes
         
-- name: "Copy haproxy.cfg to the managed node"
+- name: "Copying configuration haproxy "
   template: 
-     dest: haproxy.cfg
-     src: /etc/haproxy/
+        src: "haproxy.cfg"
+        dest: "/etc/haproxy/haproxy.cfg"
 
 - name: Restart service haproxy
   service: 
