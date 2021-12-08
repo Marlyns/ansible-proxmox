@@ -8,11 +8,7 @@
   
 - name: "Check haproxy.cfg"
   stat: path=/etc/haproxy/haproxy.cfg
-  register: haproxy.cfg.old
-
-- name: "Move haproxy.cfg to haproxy.old"
   command: mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.old
-  when: haproxy.cfg.old.old
      
 - name: "Copy haproxy.cfg to the managed node"
   template: 
