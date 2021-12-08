@@ -8,7 +8,6 @@
   
 - name: "Copy haproxy.cfg to the managed node"
   copy:
-     remote_src=True
      src: /etc/haproxy/haproxy.cfg
      dest: /etc/haproxy/haproxy.cfg.old
      
