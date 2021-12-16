@@ -1,0 +1,5 @@
+all: 
+  children:
+         ha1:
+           hosts:
+              192.168.9.203
