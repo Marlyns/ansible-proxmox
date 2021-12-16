@@ -1,12 +1,8 @@
 all: 
   children:
-    nginx:
-       hosts:
-         192.168.9.204
-         192.168.9.205
-    nginx1:
-       hosts:
-         192.168.9.204
-    nginx2:
-       hosts:
-         192.168.9.205
+     nginx1:
+         hosts:
+            192.168.9.204
+     nginx2:
+         hosts:
+            192.168.9.205
