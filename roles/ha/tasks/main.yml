@@ -10,7 +10,7 @@
         
 - name: "Copying configuration haproxy "
   template: 
-        src: "haproxy.cfg"
+        src: "haproxy.cfg.j2"
         dest: "/etc/haproxy/haproxy.cfg"
 
 - name: permit traffic in default
@@ -21,7 +21,7 @@
 
 - name: permit traffic in default
   ansible.posix.firewalld:
-    port: 9000/tcp
+    port: 5000/tcp
     permanent: yes
     state: enabled
 
