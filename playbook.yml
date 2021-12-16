@@ -3,9 +3,3 @@
   become: yes
   roles:
     - nginx
-
-- name: install ha
-  hosts: ha
-  become: yes
-  roles:
-    - ha
