@@ -6,14 +6,14 @@
     update_cache: yes
     cache_valid_time: 3600
   become: yes
-
-- name: start nginx
-  service:
-    name: nginx
-    state: started
-  become: yes
-
-- name: copy index.html during templates
+  
+  - name: copy index.html during templates
   template:
     src: index.html.j2
     dest: /var/www/html/index.html
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+  become: yes
