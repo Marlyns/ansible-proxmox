@@ -26,13 +26,21 @@ listen stats
      stats show-legends
 
 frontend nginx_front
-     description Front de LoadBalancer
+     description Front de hce1.workshop.fr & hce2.workshop.fr
      bind *:80
      mode http
-     default_backend nginx_load
+     acl hce1_front1 hdr_dom(host) -i hce1.workshop.fr
+     use-backend hce1 if hce1_front1
+     
+     acl hce2_front2 hdr_dom(host) -i hce2.workshop.fr
+     use-backend hce2 if hce2_front2
 
-backend nginx_load
-     description Backend de Load Balancer
+backend hce1
+     description Backend hce1.workshop
+     #server nginx1 192.168.9.204:80 check
+
+backend hce2
+     description Backend hce2.workshop
      balance roundrobin
-     server nginx1 192.168.9.204:80 check
-     server nginx2 192.168.9.205:80 check backup
+     server nginx2 192.168.9.204:80 check
+     server nginx3 192.168.9.205:80 check
