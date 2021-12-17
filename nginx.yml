@@ -6,3 +6,6 @@ all:
      nginx2:
          hosts:
             192.168.9.205
+     nginx3:
+         hosts:
+            192.168.9.206
