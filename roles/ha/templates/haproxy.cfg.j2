@@ -37,10 +37,10 @@ frontend nginx_front
 
 backend hce1
      description Backend hce1.workshop
-     #server nginx1 192.168.9.204:80 check
+     server nginx1 192.168.9.204:80 check
 
 backend hce2
      description Backend hce2.workshop
      balance roundrobin
-     server nginx2 192.168.9.204:80 check
-     server nginx3 192.168.9.205:80 check
+     server nginx2 192.168.9.205:80 check
+     server nginx3 192.168.9.206:80 check
