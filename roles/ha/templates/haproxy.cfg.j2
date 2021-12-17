@@ -30,10 +30,10 @@ frontend nginx_front
      bind *:80
      mode http
      acl hce1_front1 hdr_dom(host) -i hce1.workshop.fr
-     use-backend hce1 if hce1_front1
+     use_backend hce1 if hce1_front1
      
      acl hce2_front2 hdr_dom(host) -i hce2.workshop.fr
-     use-backend hce2 if hce2_front2
+     use_backend hce2 if hce2_front2
 
 backend hce1
      description Backend hce1.workshop
